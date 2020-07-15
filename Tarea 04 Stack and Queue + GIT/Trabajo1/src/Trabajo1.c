@@ -1,18 +1,3 @@
-/*
- ============================================================================
- Name        : Trabajo1.c
- Author      : Grupo 05
- Version     :
- Copyright   : Your copyright notice
- Description :
- • Implementar todas las operaciones vistas en la pila;
-• Implemente un programa principal que use la pila a través de un menú con los siguientes elementos: apilar, desapilar, limpiar, mostrar pila, salir del programa. Utilice el marco de programación del interruptor "C" para esto;
-• al mostrar la pila, el programa debe colocar su posición en el vector debajo de cada dato. Utilice las opciones de tamaño de campo de impresión printf () para esto;
-• la batería tendrá un tamaño máximo de 30, definida como una constante llamada MAXPILHA. Use esta constante para definir la estructura de datos que será la pila;
-• la pila será referenciada por una variable global.
- ============================================================================
- */
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <conio.h>
@@ -24,6 +9,78 @@ struct Pila
     int tope;
     int datos[MAXPILA];
 };
-
 struct Pila apila;
 void menuPrincipal();
+
+
+int tope()
+{
+    if(pilaVacia)
+    {
+        printf("ERROR: La pila esta vacia no se puede acceder!!!");
+        return(ERRORPILAVACIA);
+    }
+    else
+    {
+        return(apila.datos[apila.tope]);
+    }
+}
+int main()
+{
+    int opcion;
+    int d;
+    do
+    {
+        menuPrincipal();
+        scanf("%d", &opcion);
+        switch(opcion)
+        {
+        case 0:
+            exit(1);
+            break;
+        case 1:
+           inicializarPila() ;
+             printf("\n");
+            system("pause");
+            break;
+        case 2:
+            apilar(d);
+            system("pause");
+            break;
+        case 3:
+            mostrar();
+            printf("\n");
+            system("pause");
+            break;
+        case 4:
+            desempilar();
+            printf("\n");
+            system("pause");
+            break;
+        case 5:
+            limpiarPila();
+            printf("\n");
+            system("pause");
+            break;
+
+        }
+        system("cls");
+    }
+    while(opcion !=6);
+    getch();
+        return 0;
+}
+void menuPrincipal()
+{
+    printf("\n\n ***** TRABAJO1 - PILAS *****");
+    printf("\n\n     ***** GRUPO 5 *****     ");
+    printf("\n 1:  CREAR PILA");
+    printf("\n 2:  INGRESAR UN DATO A LA PILA");
+    printf("\n 3:  MOSTRAR LA PILA");
+    printf("\n 4:  DESEMPILAR");
+    printf("\n 5:  LIMPIAR LA PILA");
+    printf("\n\n 0: SALIR");
+    printf("\n\n INGRESAR UNA OPCION : ");
+}
+
+
