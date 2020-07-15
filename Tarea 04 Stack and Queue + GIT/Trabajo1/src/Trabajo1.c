@@ -52,6 +52,33 @@ int mostrar ()
     }
 }
 
+int inicializarPila()
+{
+    apila.tope = -1;
+    printf("La pila se creo correctamente");
+}
+bool pilaLlena()
+{
+    if(apila.tope== MAXPILA -1)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+bool pilaVacia()
+{
+    if(apila.tope == -1)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+
 int tope()
 {
     if(pilaVacia)
@@ -122,5 +149,4 @@ void menuPrincipal()
     printf("\n\n INGRESAR UNA OPCION : ");
 }
 
- 
 
